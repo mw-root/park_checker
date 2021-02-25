@@ -64,8 +64,7 @@ def main():
         { 'date': date(2021, 7, 30), 'lake': lakes.harry_lake },
         { 'date': date(2021, 7, 31), 'lake': lakes.little_bell_lake },
         { 'date': date(2021, 7, 31), 'lake': lakes.bell_lake },
-        { 'date': date(2021, 7, 31), 'lake': lakes.balsam_lake },
-        
+        { 'date': date(2021, 7, 31), 'lake': lakes.balsam_lake },    
     ]
     msgs = []
     for site in site_list:
@@ -121,17 +120,17 @@ def get_url_for_date(d, park):
         }
     }
     return(
-        'https://reservations.ontarioparks.com/api/availability/'
+           'https://reservations.ontarioparks.com/api/availability/'
         f'''map?mapId={booking_config[park.name]['map_id']}'''
         f'''&bookingCategoryId={booking_config[park.name]['booking_category_id']}'''
         f'''&resourceLocationId={booking_config[park.name]['resource_location_id']}'''
-        '&equipmentCategoryId=null'
-        '&subEquipmentCategoryId=null'
+           '&equipmentCategoryId=null'
+           '&subEquipmentCategoryId=null'
         f'''&cartUid={booking_config[park.name]['cart_uid']}'''
         f'''&bookingUid={booking_config[park.name]['booking_uid']}'''
-        f'&startDate={d.isoformat()}&endDate={(d + timedelta(days = 1)).isoformat()}'
-        '&getDailyAvailability=false&isReserving=true&filterData=%5B%5D&boatLength=null&boatDraft=null&boatWidth=null&partySize=1'
-        f'&seed={seed}'
+        f'''&startDate={d.isoformat()}&endDate={(d + timedelta(days = 1)).isoformat()}'''
+           '&getDailyAvailability=false&isReserving=true&filterData=%5B%5D&boatLength=null&boatDraft=null&boatWidth=null&partySize=1'
+        f'''&seed={seed}'''
     )
 
 if __name__ == '__main__':
