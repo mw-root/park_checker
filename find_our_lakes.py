@@ -27,6 +27,7 @@ class Lakes:
         self.johnnie_lake       = Lake('Johnnie Lake',          Parks.KILLARNEY,        -2147475294)
         self.little_bell_lake   = Lake('Little Bell Lake',      Parks.KILLARNEY,        -2147475285)
         self.topaz_lake         = Lake('Topaz Lake',            Parks.KILLARNEY_HIKE,   -2147475348)
+        self.big_thunder_lake   = Lake('Big Thunder',           Parks.ALGONQUIN,        -2147482892)
 
 availability_by_date = {}
 
@@ -64,7 +65,7 @@ def main():
         { 'date': date(2021, 7, 30), 'lake': lakes.harry_lake },
         { 'date': date(2021, 7, 31), 'lake': lakes.little_bell_lake },
         { 'date': date(2021, 7, 31), 'lake': lakes.bell_lake },
-        { 'date': date(2021, 7, 31), 'lake': lakes.balsam_lake },    
+        { 'date': date(2021, 7, 31), 'lake': lakes.balsam_lake },
     ]
     msgs = []
     for site in site_list:
@@ -113,12 +114,14 @@ def get_url_for_date(d, park):
             'resource_location_id': '-2147483601'
         },
         'ALGONQUIN': {
-            'booking_uid':          '',
-            'booking_category_id':  '',
-            'cart_uid':             '',
-            'map_id':               ''
+            'booking_uid':          'b',
+            'booking_category_id':  '4',
+            'cart_uid':             'a49459c0-c914-4586-927e-fbb6881588ea',
+            'resource_location_id': '-2147483644',
+            'map_id':               '-2147483635'
         }
     }
+
     return(
            'https://reservations.ontarioparks.com/api/availability/'
         f'''map?mapId={booking_config[park.name]['map_id']}'''
